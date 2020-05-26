@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
+  get 'about', to: 'pages#about', as: :about
 
   resources :artifacts do
     resources :bids, only: [:new, :create]

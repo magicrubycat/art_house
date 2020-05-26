@@ -1,8 +1,11 @@
-<%= artifact.name  %>
-<%= artifact.artist  %>
-<%= artifact.year  %>
-<%= artifact.description  %>
-<%= artifact.starting_value  %>
+<!-- This is a global variable - we need to add @ - for us to create an artifact -->
+<h1>Details of <%= @artifact.name %></h1>
+<ul>
+<%= @artifact.artist  %>
+<%= @artifact.year  %>
+<%= @artifact.description  %>
+<%= @artifact.starting_value  %>
+</ul>
 
 <%= link_to "Remove this artifact", article_path(@artifact), method: :delete, data: { confirm: "Really?!"} %>
 <%= link_to "Go back", artifacts_path  %>

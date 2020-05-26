@@ -24,7 +24,9 @@ class ArtifactsController < ApplicationController
   end
 
   def destroy
+    @artifact.destroy
 
+    redirect_to artifacts_path
   end
 
   private

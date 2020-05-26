@@ -1,3 +1,4 @@
+<!-- This is our main HTML file. Everytime we trigger a view we get the HEAD and the YIELD. The YIELD is where HOME is rendered. -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,8 +13,10 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

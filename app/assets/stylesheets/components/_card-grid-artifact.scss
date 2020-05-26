@@ -1,10 +1,16 @@
+@import "card-grid-artifact";
+
 .card-grid-artifact {
   display: grid;
-  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
+.card-artifact {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-grid-artifact {

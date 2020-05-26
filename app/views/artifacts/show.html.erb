@@ -4,4 +4,5 @@
 <%= artifact.description  %>
 <%= artifact.starting_value  %>
 
+<%= link_to "Remove this artifact", article_path(@artifact), method: :delete, data: { confirm: "Really?!"} %>
 <%= link_to "Go back", artifacts_path  %>

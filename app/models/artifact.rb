@@ -1,5 +1,5 @@
 class Artifact < ApplicationRecord
-  has_many_attached :photos
+  has_one_attached :photo
   belongs_to :user
   has_many :bids
 end

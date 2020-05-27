@@ -67,3 +67,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Our project's gems
 gem 'devise'
 gem 'faker'
+gem 'cloudinary', '~> 1.12.0'
+

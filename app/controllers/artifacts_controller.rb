@@ -36,7 +36,7 @@ class ArtifactsController < ApplicationController
   end
 
   def artifacts_params
-    params.require(:artifact).permit(:name, :artist, :year, :description, :starting_value, :sold)
+    params.require(:artifact).permit(:name, :artist, :year, :description, :starting_value, :sold, :photo)
   end
 
 end

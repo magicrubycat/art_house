@@ -7,21 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-Faker::Artist.name      #=> "Christophe Bartell"
-
-Faker::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"
-Artists = Faker::Artist.name 
-
-
- 50.times do
-  artifacts = Artifact.new(
-    name: Faker::Lorem.word,
-    artist: Faker::Artist.name,
-    year: Faker::Date.backward,
-    description: Faker::Lorem.word,
-    starting_value:Faker::Number.number
-    sold: Faker::Boolean.boolean
-    puts "https://picsum.photos/id/237/200/300"
+emails = ["alon@art-house.com", "petronela@art-house.com", "carina@art-house.com", "cornelia@art-house.com", "jasmin@art-house.com"]
+emails.each do |email|
+   user = User.new(
+     email: email,
+     password: "123456")
+   user.save!
+   5.times do
+   artifact = Artifact.new(
+     name: Faker::Lorem.word,
+     artist: Faker::Artist.name,
+     year: rand(1790..2020),
+     description: Faker::Lorem.paragraphs,
+     starting_value: rand(300..21500),
+     user: user
   )
   artifact.save!
  end
+end

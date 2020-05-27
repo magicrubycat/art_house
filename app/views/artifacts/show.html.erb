@@ -1,14 +1,15 @@
 <!-- This is a global variable - we need to add @ - for us to create an artifact -->
-<h1>Details of <%= @artifact.name %></h1>
-<ul>
-  <%= @artifact.artist  %>
-  <%= @artifact.year  %>
-  <%= @artifact.description  %>
-  <%= @artifact.starting_value  %>
-  <%= cl_image_tag @artifact.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-</ul>
+<div class="container">
+  <h1>Details of <%= @artifact.name %></h1>
+  <ul>
+    <li><%= @artifact.artist  %></li>
+    <li><%= @artifact.year  %></li>
+    <li><%= @artifact.description  %></li>
+    <li><%= @artifact.starting_value  %></li>
+  </ul>
 
-<%= link_to "Place a bid", new_artifact_bid_path(@artifact)  %>
-<%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"} %>
-<%= link_to "Go back", artifacts_path  %>
+<%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-ghost"  %>
+<%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
+<%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
+
+</div>

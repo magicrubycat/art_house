@@ -11,7 +11,7 @@ class BidsController < ApplicationController
     @bid.user = current_user
     @bid.artifact = @artifact
     if @bid.save
-      redirect_to dashboard_path
+      redirect_to artifact_path(@artifact)
     else
       render :new
     end

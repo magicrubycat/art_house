@@ -1,7 +1,12 @@
 .card-artifact {
-  width: 300;
-
+  width: 200;
+  padding: 20px;
   h1 {
     color: black;
   }
+}
+.card-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }

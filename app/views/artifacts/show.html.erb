@@ -1,5 +1,9 @@
 <div class="container">
-  <%= cl_image_tag @artifact.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if @artifact.photo.attached? %>
+    <%= cl_image_tag @artifact.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+  <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 400, height: 300, crop: :fill) %>
+    <% end %>
   <h1>Details of <%= @artifact.name %></h1>
   <ul>
     <li><%= @artifact.artist  %></li>

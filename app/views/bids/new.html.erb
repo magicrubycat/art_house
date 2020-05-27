@@ -1,1 +1,6 @@
-new.html.erb
+<%= simple_form_for(@bid) do |f| %>
+    <%= f.input :value %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "Go back", artifact_path(@artifact)  %>

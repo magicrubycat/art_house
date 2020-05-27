@@ -15,7 +15,7 @@ emails.each do |email|
    user.save!
    5.times do
    artifact = Artifact.new(
-     name: Faker::Lorem.word,
+     name: Faker::Lorem.unique.word.capitalize(),
      artist: Faker::Artist.name,
      year: rand(1790..2020),
      description: Faker::Lorem.paragraphs,

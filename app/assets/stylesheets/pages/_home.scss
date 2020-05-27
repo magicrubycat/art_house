@@ -7,3 +7,7 @@
 .container-intro-text {
   text-align: center;
 }
+
+.page-content {
+  min-height: calc(100vh - 100px - 66px);
+}

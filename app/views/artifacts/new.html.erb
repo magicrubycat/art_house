@@ -1,11 +1,13 @@
-<%= simple_form_for(@artifact) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :artist %>
-    <%= f.input :year %>
-    <%= f.input :description %>
-    <%= f.input :starting_value %>
-     <%= f.input :photo, as: :file %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+<div class="container">
+  <%= simple_form_for(@artifact) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :artist %>
+      <%= f.input :year %>
+      <%= f.input :description %>
+      <%= f.input :starting_value %>
+       <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
 
-  <%= link_to "Go back", artifacts_path  %>
+    <%= link_to "Go back", artifacts_path  %>
+</div>

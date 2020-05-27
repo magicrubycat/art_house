@@ -1,4 +1,7 @@
 .footer {
+  clear: both;
+  position: relative;
+  bottom: 0;
   background: #DDDDDD;
   // background: #F4F4F4;
   display: flex;
@@ -7,6 +10,7 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  width: 100%;
 }
 .footer-links {
   display: flex;

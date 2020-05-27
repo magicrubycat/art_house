@@ -1,6 +1,13 @@
-<% @artifacts.each do |artifact| %>
-  <%= link_to artifact.name, artifact_path(artifact)  %>
-  <%= artifact.artist  %>
-  <%= artifact.year  %>
-  <%= artifact.starting_value  %>
-<% end %>
+<div class="container">
+  <h1>Here's a list of all our artifacts:</h1>
+  <div class="card-grid-artifact">
+    <% @artifacts.each do |artifact| %>
+      <div class="card-artifact">
+        <h1><%= link_to artifact.name, artifact_path(artifact)  %></h1>
+        <h4><%= artifact.artist  %></h4>
+        <h4><%= artifact.year  %></h4>
+        <h4><%= artifact.starting_value  %></h4>
+      </div>
+  <% end %>
+  </div>
+</div>

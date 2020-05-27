@@ -5,6 +5,10 @@
 <%= @artifact.year  %>
 <%= @artifact.description  %>
 <%= @artifact.starting_value  %>
+<% @article.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 </ul>
 
 <%= link_to "Remove this artifact", article_path(@artifact), method: :delete, data: { confirm: "Really?!"} %>

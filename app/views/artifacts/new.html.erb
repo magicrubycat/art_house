@@ -4,6 +4,7 @@
     <%= f.input :year %>
     <%= f.input :description %>
     <%= f.input :starting_value %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 

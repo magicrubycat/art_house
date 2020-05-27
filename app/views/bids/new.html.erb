@@ -1,4 +1,4 @@
-<%= simple_form_for(@bid) do |f| %>
+<%= simple_form_for([@artifact, @bid]) do |f| %>
     <%= f.input :value %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>

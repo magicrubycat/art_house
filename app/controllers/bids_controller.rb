@@ -10,7 +10,7 @@ class BidsController < ApplicationController
     @artifact = Artifact.find(params[:artifact_id])
     @bid.user = current_user
     @bid.artifact = @artifact
-    if @dose.save
+    if @bid.save
       redirect_to dashboard_path
     else
       render :new

@@ -1,5 +1,5 @@
 <% @artifacts.each do |artifact| %>
-  <%= artifact.name  %>
+  <%= link_to artifact.name, artifact_path(artifact)  %>
   <%= artifact.artist  %>
   <%= artifact.year  %>
   <%= artifact.starting_value  %>

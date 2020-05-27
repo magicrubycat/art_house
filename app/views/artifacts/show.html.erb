@@ -7,5 +7,6 @@
 <%= @artifact.starting_value  %>
 </ul>
 
-<%= link_to "Remove this artifact", article_path(@artifact), method: :delete, data: { confirm: "Really?!"} %>
+<%= link_to "Place a bid", new_artifact_bid_path(@artifact)  %>
+<%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"} %>
 <%= link_to "Go back", artifacts_path  %>

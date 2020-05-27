@@ -1,6 +1,6 @@
 class ArtifactsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_artifact, only: [:show]
+  before_action :set_artifact, only: [:show, :destroy]
 
   def index
     @artifacts = Artifact.all

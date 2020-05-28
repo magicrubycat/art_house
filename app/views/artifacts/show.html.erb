@@ -12,11 +12,12 @@
     <li>Starting value: <%= @artifact.starting_value  %>€</li>
   </ul>
 
-<%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-ghost"  %>
-  <% if policy(Bid).create?  %>
-    <%= link_to "New bid", artifact_bids_path %>
+<% if @artifact.user != current_user %>
+  <%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-ghost"  %>
   <% end %>
-<%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
-<%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
 
+<% if policy(@artifact).destroy? %>
+  <%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
+<% end %>
+<%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
 </div>

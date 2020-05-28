@@ -1,5 +1,5 @@
 class Bid < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  belongs_to :artifact, dependent: :destroy
+  belongs_to :user
+  belongs_to :artifact
   validates  :value, presence: true
 end

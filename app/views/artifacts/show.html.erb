@@ -23,8 +23,12 @@
     </div>
   </div>
 
-<%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-ghost"  %>
-<%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
-<%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
+<% if @artifact.user != current_user %>
+  <%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-ghost"  %>
+  <% end %>
 
+<% if policy(@artifact).destroy? %>
+  <%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
+<% end %>
+<%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
 </div>

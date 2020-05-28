@@ -2,32 +2,38 @@
   <h1><%= @artifact.name.capitalize %></h1>
   <div class="container-show-details">
     <% if @artifact.photo.attached? %>
-      <%= cl_image_tag @artifact.photo.key, height: 600, width: 500, crop: :fill %>
+    <%= cl_image_tag @artifact.photo.key, height: 600, width: 500, crop: :fill %>
     <% else %>
-      <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
+    <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
     <% end %>
     <div class="card-details">
-    <h4>Details of artifact:</h4>
+      <h3>Details of artifact:</h3>
       <ul>
         <li>Made by <%= @artifact.artist %> in <%= @artifact.year %></li>
         <li>Description: <%= @artifact.description  %></li>
         <li>Starting value: <%= @artifact.starting_value  %>€</li>
       </ul>
 
-      <p><% @bids.each do |bid| %></p>
-         <% if bid.artifact_id == @artifact.id %>
-           <p><%= bid.value %> €</p>
-        <% end %>
+      <% if @artifact.user != current_user %>
+      <%= simple_form_for([@artifact, @bid]) do |f| %>
+      <h4><%= f.input :value, label: "Place a bit:" %></h4>
+      <%= f.button :submit, "Submit", class: "btn btn-danger", style: "margin-bottom: 15px;" %>
       <% end %>
+      <% end %>
+      <ul>
+
+        <p><% @bids.each do |bid| %></p>
+        <% if bid.artifact_id == @artifact.id %>
+        <li><%= bid.value %> €</li>
+         <% end %>
+        <% end %>
+      </ul>
     </div>
   </div>
 
-<% if @artifact.user != current_user %>
-  <%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-danger"  %>
-  <% end %>
 
-<% if policy(@artifact).destroy? %>
+  <% if policy(@artifact).destroy? %>
   <%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
-<% end %>
-<%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
+  <% end %>
+  <%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
 </div>

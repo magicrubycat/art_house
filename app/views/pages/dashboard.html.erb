@@ -1,8 +1,18 @@
-<h1>Welcome back to Arthouse Auctions!</h1>
-
 <div class="container">
+  <div class="container-dashboard">
+    <div class="container card-overview-dashboard">
+      <h1>Welcome back, User!</h1>
+    </div>
+    <div class="card-overview-dashboard">
+      <h4><%=  %> Artifacts</h4>
+      <h4><%=  %> Offers </h4>
+      <h4><%=  %> Bids</h4>
+    </div>
+  </div>
+
   <h4>Here are all your bids*:</h4>
   <p>*Keep in mind that when accepting one bid, all the other bids will be rejected automatically. </p>
+
   <div class="cards">
     <div>
       <% @artifacts.each do |artifact| %>
@@ -10,15 +20,48 @@
         <p>Starting value: <%= artifact.starting_value %>€</p>
         <ul>
           <% artifact.bids.each do |bid| %>
+          <div>
             <% if bid.status == nil %>
             <li><p><%= bid.value %>€</p>
               <%= link_to "Accept", accept_bid_path(bid), class: "btn btn-ghost btn-sm" %>
               <%= link_to "Reject", reject_bid_path(bid), class: "btn btn-ghost btn-sm" %>
             <% end %>
             </li>
+          </div>
           <% end %>
         </ul>
       <% end %>
     </div>
   </div>
 </div>
+
+
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>

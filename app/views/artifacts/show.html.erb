@@ -7,18 +7,20 @@
       <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
     <% end %>
     <div class="card-details">
-    <h4>Details of artifact:</h4>
+    <h3>Details of artifact:</h3>
       <ul>
         <li>Made by <%= @artifact.artist %> in <%= @artifact.year %></li>
         <li>Description: <%= @artifact.description  %></li>
         <li>Starting value: <%= @artifact.starting_value  %>€</li>
       </ul>
 
+      <ul>
       <p><% @bids.each do |bid| %></p>
          <% if bid.artifact_id == @artifact.id %>
-           <p><%= bid.value %> €</p>
+           <li><%= bid.value %> €</li>
+           <% end %>
         <% end %>
-      <% end %>
+      </ul>
     </div>
   </div>
 

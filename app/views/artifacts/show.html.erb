@@ -14,6 +14,12 @@
         <li>Description: <%= @artifact.description  %></li>
         <li>Starting value: <%= @artifact.starting_value  %>€</li>
       </ul>
+
+      <p><% @bids.each do |bid| %></p>
+         <% if bid.artifact_id == @artifact.id %>
+           <p><%= bid.value %> €</p>
+        <% end %>
+      <% end %>
     </div>
   </div>
 

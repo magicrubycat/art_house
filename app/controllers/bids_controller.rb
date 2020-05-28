@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-  before_action :set_bid, only: [ :accept, :reject ]
+  before_action :set_bid, only: [ :show, :accept, :reject ]
 
   def new
     @artifact = Artifact.find(params[:artifact_id])
@@ -31,7 +31,8 @@ class BidsController < ApplicationController
       end
     end
     @bid.save
-
+    @artifact.sold = true
+    @artifact.save
     redirect_to dashboard_path
   end
 

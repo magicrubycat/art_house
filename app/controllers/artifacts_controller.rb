@@ -11,8 +11,15 @@ class ArtifactsController < ApplicationController
   end
 
   def show
-    @bids = Bid.where(params[:artifact_id])
+    @bids = Bid.where(artifact_id: @artifact.id).order("value DESC").first
     @bid = Bid.new
+    if @bids.present?
+      if @bids.value < @artifact.starting_value
+      flash.now[:notice] = "Your bid is lower than the starting price."
+      else
+        flash.now[:notice] = "Thanks for your money!"
+      end
+    end
   end
 
   def new
@@ -26,8 +33,6 @@ class ArtifactsController < ApplicationController
     authorize @artifact
     if @artifact.save
       redirect_to artifact_path(@artifact), notice: "Artifact has been successfully created."
-    else
-      render :new
     end
   end
 

@@ -12,9 +12,6 @@
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "View all artifacts", artifacts_path, class: "nav-link", class: "btn btn-ghost btn-sm" %>
-        </li>
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Add your own artifact", new_artifact_path, class: "nav-link", class: "btn btn-ghost btn-sm" %>

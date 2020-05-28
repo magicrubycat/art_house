@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for([@artifact, @bid]) do |f| %>
-      <h1><%= f.input :value %></h1>
-      <%= f.button :submit, class: "btn btn-ghost" %>
+      <h4><%= f.input :value %></h4>
+      <%= f.button :submit, class: "btn btn-danger", style: "margin-bottom: 15px;" %>
     <% end %>
 
     <%= link_to "Go back", artifact_path(@artifact), class: "btn btn-ghost"  %>

@@ -1,4 +1,5 @@
 <div class="container">
+  <h4>Add your own artifact:</h4>
   <%= simple_form_for(@artifact) do |f| %>
       <%= f.input :name %>
       <%= f.input :artist %>
@@ -9,5 +10,5 @@
       <%= f.button :submit, class: "btn btn-ghost" %>
     <% end %>
 
-    <%= link_to "Go back", artifacts_path, class: "btn btn-ghost" %>
+    <%= link_to "Go back", artifacts_path, class: "btn btn-ghost", style: "margin-top: 15px;" %>
 </div>

@@ -1,5 +1,17 @@
 <div class="container">
-  <h1>Here's a list of all our artifacts:</h1>
+   <h1>Here's a list of all our artifacts:</h1>
+<div class="row">
+   <div class="col-6">
+  </div>
+  <div class="col-9">
+    <form class="form-inline" action="artifacts">
+  <input class="form-control form-control-sm mr-1 w-75" type="text" name="query" placeholder="Search"
+    aria-label="Search">
+  <i class="fas fa-search" aria-hidden="true"></i>
+</form>
+  </div>
+</div>
+
   <div class="card-grid-artifact">
     <% @artifacts.each do |artifact| %>
       <div class="card-artifact">
@@ -8,6 +20,7 @@
         <p>Year: <%= artifact.year  %></p>
         <p>Starting value: <%= artifact.starting_value  %>€</p>
       </div>
-  <% end %>
+    <% end %>
+   </div>
   </div>
 </div>

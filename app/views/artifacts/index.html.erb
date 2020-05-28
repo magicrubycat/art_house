@@ -2,12 +2,19 @@
   <h1>Here's a list of all our artifacts:</h1>
   <div class="card-grid-artifact">
     <% @artifacts.each do |artifact| %>
-      <div class="card-artifact">
-        <h1><%= link_to artifact.name.capitalize, artifact_path(artifact)  %></h1>
-        <p>Artist: <%= artifact.artist  %></p>
-        <p>Year: <%= artifact.year  %></p>
-        <p>Starting value: <%= artifact.starting_value  %>€</p>
+      <%= link_to artifact_path(artifact) do %>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2> <%= artifact.name %></h2>
+            <p>Made by <%= artifact.artist %> in <%= artifact.year %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= artifact.starting_value %>€</h2>
+          <div class="card-trip-user bid-count"><%= artifact.bids.count %></div>
+        </div>
       </div>
+    <% end %>
   <% end %>
   </div>
 </div>

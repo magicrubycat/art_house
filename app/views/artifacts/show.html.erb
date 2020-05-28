@@ -2,15 +2,14 @@
   <h1><%= @artifact.name.capitalize %></h1>
   <div class="container-show-details">
     <% if @artifact.photo.attached? %>
-      <%= cl_image_tag @artifact.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @artifact.photo.key, height: 600, width: 500, crop: :fill %>
     <% else %>
-      <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 400, height: 300, crop: :fill) %>
+      <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
     <% end %>
     <div class="card-details">
     <h4>Details of artifact:</h4>
       <ul>
-        <li>Artist: <%= @artifact.artist  %></li>
-        <li>Year: <%= @artifact.year  %></li>
+        <li>Made by <%= @artifact.artist %> in <%= @artifact.year %></li>
         <li>Description: <%= @artifact.description  %></li>
         <li>Starting value: <%= @artifact.starting_value  %>€</li>
       </ul>
@@ -24,7 +23,7 @@
   </div>
 
 <% if @artifact.user != current_user %>
-  <%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-ghost"  %>
+  <%= link_to "Place a bid", new_artifact_bid_path(@artifact), class: "btn btn-danger"  %>
   <% end %>
 
 <% if policy(@artifact).destroy? %>

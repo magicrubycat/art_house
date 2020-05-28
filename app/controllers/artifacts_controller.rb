@@ -9,6 +9,7 @@ class ArtifactsController < ApplicationController
 
   def show
     @bids = Bid.where(params[:artifact_id])
+    @bid = Bid.new
   end
 
   def new

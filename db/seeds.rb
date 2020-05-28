@@ -14,19 +14,23 @@ User.destroy_all
 
         user = User.create!(
         email: 'alon@art-house.com',
-        password: "123456"
+        password: "123456",
+        name: "Alon"
     )
        user = User.create!(
         email: 'petronela@art-house.com',
-        password: "123456"
+        password: "123456",
+        name: "Petronela"
     )
        user = User.create!(
         email: 'carina@art-house.com',
-        password: "123456"
+        password: "123456",
+        name: "Carina"
     )
        user = User.create!(
         email: 'cornelia@art-house.com',
-        password: "123456"
+        password: "123456",
+        name: "Jasmin"
     )
         file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
        

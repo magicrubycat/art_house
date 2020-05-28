@@ -3,6 +3,8 @@ class BidsController < ApplicationController
   def new
     @artifact = Artifact.find(params[:artifact_id])
     @bid = Bid.new
+    @bid.artifact = @artifact
+    authorize @bid
   end
 
   def create
@@ -10,6 +12,7 @@ class BidsController < ApplicationController
     @artifact = Artifact.find(params[:artifact_id])
     @bid.user = current_user
     @bid.artifact = @artifact
+    authorize @bid
     if @bid.save
       redirect_to artifact_path(@artifact)
     else
@@ -19,6 +22,7 @@ class BidsController < ApplicationController
 
   def destroy
     @bid.destroy
+    authorize @bid
 
     redirect_to artifacts_path
   end

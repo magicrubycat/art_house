@@ -1,1 +1,14 @@
-dashboard.html.erb
+<% @artifacts.each do |artifact| %>
+<h2><%= artifact.name %></h2>
+<%= artifact.id %>
+<ul>
+<% artifact.bids.each do |bid| %>
+  <% if bid.status == nil %>
+  <li><%= bid.value %>
+    <%= link_to "Accept", accept_bid_path(bid) %>
+    <%= link_to "Reject", reject_bid_path(bid) %>
+  <% end %>
+  </li>
+<% end %>
+</ul>
+<% end %>

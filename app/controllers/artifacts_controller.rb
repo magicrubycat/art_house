@@ -3,8 +3,11 @@ class ArtifactsController < ApplicationController
   before_action :set_artifact, only: [:show, :update, :destroy]
 
   def index
-    @artifacts = Artifact.where(sold: false)
-    @artifacts = policy_scope(Artifact)
+    if params[:query].present?
+      @artifacts = policy_scope(Artifact).search_by_all_attributes(params[:query]).where(sold: false)
+    else
+      @artifacts = policy_scope(Artifact).where(sold: false)
+    end
   end
 
   def show

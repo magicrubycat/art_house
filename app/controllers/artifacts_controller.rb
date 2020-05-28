@@ -3,7 +3,8 @@ class ArtifactsController < ApplicationController
   before_action :set_artifact, only: [:show, :destroy]
 
   def index
-    @artifacts = Artifact.all
+    # @artifacts = Artifact.all
+    @artifacts = policy_scope(Artifact)
   end
 
   def show
@@ -11,13 +12,15 @@ class ArtifactsController < ApplicationController
 
   def new
     @artifact = Artifact.new
+    authorize @artifact
   end
 
   def create
     @artifact = Artifact.new(artifacts_params)
     @artifact.user = current_user
+    authorize @artifact
     if @artifact.save
-      redirect_to artifact_path(@artifact)
+      redirect_to artifact_path(@artifact), notice: "Artifact has been successfully created."
     else
       render :new
     end
@@ -33,6 +36,7 @@ class ArtifactsController < ApplicationController
 
   def set_artifact
     @artifact = Artifact.find(params[:id])
+    authorize @artifact
   end
 
   def artifacts_params

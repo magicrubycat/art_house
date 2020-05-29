@@ -56,10 +56,10 @@
                 <td><%= number_with_delimiter(bid.value, delimiter: ".") %> €</td>
                 <td><%= bid.user.name %></td>
                 <td>
-                  <%= link_to '<i class="far fa-check-square" style= "color:green"></i>'.html_safe, accept_bid_path(bid) %>
+                  <%= link_to '<i class="far fa-check-square"></i>'.html_safe, accept_bid_path(bid) %>
                 </td>
                 <td>
-                  <%= link_to '<i class="fas fa-times" style= "color:red"></i>'.html_safe, reject_bid_path(bid) %>
+                  <%= link_to '<i class="fas fa-times"></i>'.html_safe, reject_bid_path(bid) %>
                 </td>
                 <td></td>
               </tr>

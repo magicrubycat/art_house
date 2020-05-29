@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container main">
   <div class="container-dashboard">
     <div class="welcome dashboard-card">
       <h1>Welcome back, <%= current_user.name %>! 👩🏽‍🎨</h1>
       <hr>
     </div>
-    <div class="card-overview-dashboard">
+      <div class="card-overview-dashboard" >
         <div class="dashboard-card">
           <h4> Artifacts</h4>
           <hr style = "border: 0.5px solid rgba(255, 0, 0, 0.5)">
@@ -15,12 +15,12 @@
           <hr style = "border: 0.5px solid rgba(255, 0, 0, 0.5)">
           <h4><%= @incoming_bids.count %></h4>
         </div>
-      <div class="dashboard-card">
-        <h4> Bids</h4>
-        <hr style = "border: 0.5px solid rgba(255, 0, 0, 0.5)">
-        <h4><%= @outgoing_bids.count %></h4>
+        <div class="dashboard-card">
+          <h4> Bids</h4>
+          <hr style = "border: 0.5px solid rgba(255, 0, 0, 0.5)">
+          <h4><%= @outgoing_bids.count %></h4>
+        </div>
       </div>
-    </div>
   </div>
 
 <div class="bid-overview-card">
@@ -28,7 +28,7 @@
   <hr style = "border-bottom: 2px solid rgba(255, 0, 0, 0.5)">
 
   <% @artifacts.each do |artifact| %>
-    <div class="card-product-list-of-artifacts">
+    <div class="card-product-list-of-artifacts" >
         <% if artifact.photo.attached? %>
           <%= cl_image_tag artifact.photo.key, height: 200, width: 166, crop: :fill %>
         <% else %>
@@ -39,6 +39,9 @@
       <p> Starting value: <%= number_with_delimiter(artifact.starting_value, delimiter: ".") %> €</p>
     </div>
     <div class="card-product-infos">
+      <% if artifact.bids.empty? %>
+        <p>No bids have been placed on this artifact.</p>
+      <% else %>
       <table class="table table-borderless">
           <thead>
             <tr>
@@ -63,7 +66,7 @@
             <% end %>
           </tbody>
         </table>
-
+      <% end %>
     </div>
   </div>
 
@@ -77,6 +80,7 @@
       <table class="table table-borderless">
         <thead>
           <tr>
+            <th>Artifact</th>
             <th>Starting value</th>
             <th>Your bid</th>
           </tr>
@@ -84,6 +88,7 @@
         <tbody>
           <% @outgoing_bids.each do |bid| %>
             <tr>
+              <td><%= bid.artifact.name %> </td>
               <td><%= number_with_delimiter(bid.artifact.starting_value, delimiter: ".") %> €</td>
               <td><%= number_with_delimiter(bid.value, delimiter: ".") %> €</td>
             </tr>

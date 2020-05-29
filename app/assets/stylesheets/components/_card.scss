@@ -110,24 +110,25 @@ a:hover {
 .welcome {
   flex-grow: 1;
   margin-right: 16px;
-
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-overview-dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  width: 33%;
 }
 
 .dashboard-card {
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-top: 30px;
   border-radius: 5px;
   padding: 8px;
   text-align: center;
+  // box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
 
 .bid-overview-card {

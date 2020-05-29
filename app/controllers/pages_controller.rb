@@ -5,12 +5,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    if current_user.artifacts.any?
       @artifacts = current_user.artifacts
-      #@incoming_bids = Bid.where(artifact_id: @artifacts.pluck(:id))
-    else
-      @artifacts = []
-    end
+      @outgoing_bids = current_user.bids
+      @incoming_bids = Bid.where(artifact_id: @artifacts.pluck(:id))
   end
 
   def about

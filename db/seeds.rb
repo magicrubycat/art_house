@@ -13,27 +13,57 @@ User.destroy_all
 
 
         user = User.create!(
+        email: 'jasmin@art-house.com',
+        password: "test20",
+        name: "Jasmin"
+    )
+
+        user = User.create!(
         email: 'alon@art-house.com',
-        password: "123456",
+        password: "test20",
         name: "Alon"
     )
        user = User.create!(
         email: 'petronela@art-house.com',
-        password: "123456",
+        password: "test20",
         name: "Petronela"
     )
        user = User.create!(
         email: 'carina@art-house.com',
-        password: "123456",
+        password: "test20",
         name: "Carina"
     )
        user = User.create!(
         email: 'cornelia@art-house.com',
-        password: "123456",
-        name: "Jasmin"
+        password: "test20",
+        name: "Cornelia"
     )
+        file = URI.open("https://source.unsplash.com/collection/382986")
+
+        artifact = Artifact.create!(
+            name: Faker::Lorem.unique.word.capitalize(),
+            artist: Faker::Artist.name,
+            year: rand(1790..2020),
+            description: Faker::Lorem.paragraphs,
+            starting_value: rand(300..21500),
+            user_id: User.first.id
+        )
+         artifact.photo.attach(io: file, filename: 'artifact1.png', content_type: 'image/png')
+
+        file = URI.open("https://source.unsplash.com/collection/382986")
+
+        artifact = Artifact.create!(
+            name: Faker::Lorem.unique.word.capitalize(),
+            artist: Faker::Artist.name,
+            year: rand(1790..2020),
+            description: Faker::Lorem.paragraphs,
+            starting_value: rand(300..21500),
+            user_id: User.first.id
+        )
+         artifact.photo.attach(io: file, filename: 'artifact2.png', content_type: 'image/png')
+
         file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-       
+
         artifact = Artifact.create!(
             name: Faker::Lorem.unique.word.capitalize(),
             artist: Faker::Artist.name,
@@ -45,31 +75,7 @@ User.destroy_all
          artifact.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
         file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-       
-        artifact = Artifact.create!(
-            name: Faker::Lorem.unique.word.capitalize(),
-            artist: Faker::Artist.name,
-            year: rand(1790..2020),
-            description: Faker::Lorem.paragraphs,
-            starting_value: rand(300..21500),
-            user_id: User.first.id
-        )
-         artifact.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-        file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-       
-        artifact = Artifact.create!(
-            name: Faker::Lorem.unique.word.capitalize(),
-            artist: Faker::Artist.name,
-            year: rand(1790..2020),
-            description: Faker::Lorem.paragraphs,
-            starting_value: rand(300..21500),
-            user_id: User.first.id
-        )
-         artifact.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-
-        file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-       
         artifact = Artifact.create!(
             name: Faker::Lorem.unique.word.capitalize(),
             artist: Faker::Artist.name,
@@ -79,9 +85,9 @@ User.destroy_all
             user_id: User.first.id + 1
         )
          artifact.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-  
+
          file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-       
+
         artifact = Artifact.create!(
             name: Faker::Lorem.unique.word.capitalize(),
             artist: Faker::Artist.name,
@@ -91,7 +97,7 @@ User.destroy_all
             user_id: User.first.id + 1
         )
          artifact.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-        
+
 User.all.each do |user|
     2.times do
         bid = Bid.new(
@@ -100,8 +106,8 @@ User.all.each do |user|
             status: "pending",
             value: rand(1..10000000)
         )
-        bid.save!   
-     
+        bid.save!
+
     end
 
 end

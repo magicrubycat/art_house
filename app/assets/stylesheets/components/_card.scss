@@ -1,15 +1,26 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
 }
 
+.card-product-list-of-artifacts {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #E3E3E5;
+  margin-bottom: 20px;
+  padding: 16px;
+}
+
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 200px;
   object-fit: cover;
 }
 
@@ -96,14 +107,35 @@ a:hover {
   align-items: center;
 }
 
+.welcome {
+  flex-grow: 1;
+  margin-right: 16px;
+
+}
+
 .card-overview-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.dashboard-card {
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
   margin-top: 30px;
   border-radius: 5px;
+  padding: 8px;
+  text-align: center;
+}
+
+.bid-overview-card {
+  overflow: hidden;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 30px;
+  border-radius: 5px;
+  padding: 8px;
+  text-align: center;
 }

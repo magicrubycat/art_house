@@ -1,39 +1,45 @@
 <div class="container">
-  <h1><%= @artifact.name.capitalize %></h1>
-  <div class="container-show-details">
-    <% if @artifact.photo.attached? %>
-    <%= cl_image_tag @artifact.photo.key, height: 600, width: 500, crop: :fill %>
-    <% else %>
-    <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
-    <% end %>
+  <div class="container-show">
+    <h1><%= @artifact.name.capitalize %></h1>
+    <div class="container-show-details">
+      <% if @artifact.photo.attached? %>
+        <%= cl_image_tag @artifact.photo.key, height: 600, width: 500, crop: :fill %>
+      <% else %>
+        <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
+      <% end %>
     <div class="card-details">
-      <h3>Details of artifact:</h3>
-      <ul>
-        <li>Made by <%= @artifact.artist %> in <%= @artifact.year %></li>
-        <li>Description: <%= @artifact.description  %></li>
-        <li>Starting value: <%= @artifact.starting_value  %>€</li>
-      </ul>
+      <h2>Details of artifact:</h2>
+      <div class="details">
+        <ul class="list">
+          <li>Made by <%= @artifact.artist %> in <%= @artifact.year %></li>
+          <br>
+          <li>Description: <%= @artifact.description  %></li>
+          <br>
+          <li>Starting value: <%= number_with_delimiter(@artifact.starting_value, delimiter: ".") %> €</li>
+        </ul>
+      </div>
 
+      <% if @bids.present? && @bids.value > @artifact.starting_value %>
+      <br>
+        <h4>Highest bid: <%=  number_with_delimiter(@bids.value, delimiter: ".") %> <i class="fas fa-euro-sign"></i></h4>
+      <% end %>
+
+    <div class="form-bid">
       <% if @artifact.user != current_user %>
-      <%= simple_form_for([@artifact, @bid]) do |f| %>
-      <h4><%= f.input :value, label: "Place a bit:" %></h4>
-      <%= f.button :submit, "Submit", class: "btn btn-danger", style: "margin-bottom: 15px;" %>
-      <% end %>
-      <% end %>
-      <ul>
-
-        <p><% @bids.each do |bid| %></p>
-        <% if bid.artifact_id == @artifact.id %>
-        <li><%= bid.value %> €</li>
-         <% end %>
+        <%= simple_form_for([@artifact, @bid]) do |f| %>
+        <h4><%= f.input :value, label: "Place a bid:" %></h4>
+        <%= f.button :submit, "Submit", class: "btn btn-danger", style: "margin-bottom: 15px;" %>
         <% end %>
-      </ul>
+      <% end %>
+      </div>
     </div>
   </div>
 
 
   <% if policy(@artifact).destroy? %>
-  <%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
+    <%= link_to "Remove this artifact", artifact_path(@artifact), method: :delete, data: { confirm: "Really?!"}, class: "btn btn-ghost" %>
   <% end %>
-  <%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
+    <%= link_to "Go back", artifacts_path, class: "btn btn-ghost"  %>
+  </div>
 </div>
+

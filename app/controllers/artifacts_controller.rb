@@ -15,7 +15,7 @@ class ArtifactsController < ApplicationController
     @bid = Bid.new
     if @bids.present?
       if @bids.value < @artifact.starting_value
-      flash.now[:notice] = "Your bid is lower than the starting price."
+        flash.now[:notice] = "Your bid is lower than the starting price."
       else
         flash.now[:notice] = "Thanks for your money!"
       end

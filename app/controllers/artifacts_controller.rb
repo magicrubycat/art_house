@@ -3,8 +3,8 @@ class ArtifactsController < ApplicationController
   before_action :set_artifact, only: [:show, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @artifacts = policy_scope(Artifact).search_by_all_attributes(params[:query]).where(sold: false)
+    if params[:search].present? # first go in search then go to query - all this comes from the special form in index because it is a simple_form
+      @artifacts = policy_scope(Artifact).search_by_all_attributes(params[:search][:query]).where(sold: false)
     else
       @artifacts = policy_scope(Artifact).where(sold: false)
     end

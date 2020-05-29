@@ -1,6 +1,8 @@
 <div class="container">
-<h1>Here's a list of all our artifacts:</h1>
-<%= simple_form_for :search, url: artifacts_path, method: :get do |f| %>
+  <div class="header">
+    <h1>Here are all <%= @artifacts.size %> artifacts:</h1>
+  </div>
+   <%= simple_form_for :search, url: artifacts_path, method: :get do |f| %>
   <div class="search-form-control form-group">
     <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search art & objects" />
     <button name="button" type="submit" class="btn btn-flat">
@@ -12,18 +14,35 @@
   <div class="card-grid-artifact">
     <% @artifacts.each do |artifact| %>
       <%= link_to artifact_path(artifact) do %>
+
+      <div class="card-trip-index">
+        <% if artifact.photo.attached? %>
+          <%= cl_image_tag artifact.photo.key, height: 600, width: 500, crop: :fill %>
+        <% else %>
+          <%= image_tag("https://images.unsplash.com/photo-1580711465053-6757198851cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2254&q=80", width: 600, height: 500, crop: :fill) %>
+        <% end %>
+        <div class="index-infos">
+
+
+  <div class="card-grid-artifact">
+    <% @artifacts.each do |artifact| %>
+      <%= link_to artifact_path(artifact) do %>
       <div class="card-trip">
         <%= cl_image_tag artifact.photo.key, crop: :fill %>
+
         <div class="card-trip-infos">
           <div>
             <h2> <%= artifact.name %></h2>
             <p>Made by <%= artifact.artist %> in <%= artifact.year %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= artifact.starting_value %>€</h2>
+          <h2 class="card-trip-pricing"><%= number_with_delimiter(artifact.starting_value, delimiter: ".") %> €</h2>
           <div class="card-trip-user bid-count"><%= artifact.bids.count %></div>
         </div>
+      </div>
       </div>
     <% end %>
   <% end %>
   </div>
 </div>
+
+

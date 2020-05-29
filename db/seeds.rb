@@ -52,7 +52,7 @@ User.destroy_all
         artifact.photo.attach(io: file, filename: 'artifact1.png', content_type: 'image/png')
 
 
-        file = URI.open("https://www.malvadogroup.es/wp-content/uploads/2019/07/monalisa.jpg")
+        file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg")
 
         artifact = Artifact.create!(
             name: "Monalisa",
@@ -60,7 +60,7 @@ User.destroy_all
             year: 1503,
             description: "The Mona Lisa is a half-length portrait painting by the Italian artist Leonardo da Vinci. It is considered an archetypal masterpiece of the Italian Renaissance, and has been described as - the best known, the most visited, the most written about, the most sung about, the most parodied work of art the world.",
             starting_value: rand(300..21500),
-            user_id: User.first.id
+            user_id: User.first.id + 1
         )
          artifact.photo.attach(io: file, filename: 'artifact2.png', content_type: 'image/png')
 
@@ -73,7 +73,7 @@ User.destroy_all
             year: 2005,
             description: "First of Many is part of the Canadian art which refers to the visual as well as plastic arts - such as sculpture - originating from the geographical area of contemporary Canada. Art. Canada is marked by thousands of years of habitation by First Nation.",
             starting_value: rand(300..21500),
-            user_id: User.first.id
+            user_id: User.first.id + 1
         )
          artifact.photo.attach(io: file, filename: 'artifact3.png', content_type: 'image/png')
 
@@ -143,7 +143,7 @@ User.destroy_all
          artifact.photo.attach(io: file, filename: 'artifact8.png', content_type: 'image/png')
 
 
-        file = URI.open("https://source.unsplash.com/collection/382986/1600x900")
+        file = URI.open("https://source.unsplash.com/collection/9248817/1600x900")
 
          artifact = Artifact.create!(
             name: "Reflections in water",
@@ -161,7 +161,7 @@ User.destroy_all
 
          artifact = Artifact.create!(
             name: "Reflections about art",
-            artist: "John Smith",
+            artist: "Jim Smith",
             year: 2002,
             description: "Art is a diverse range of human activities in creating visual, auditory or performing artifacts (artworks), expressing the author's imaginative, conceptual ideas, or technical skill, intended to be appreciated for their beauty or emotional power.Other activities related to the production of works of art include the criticism of art, the study of the history of art, and the aesthetic dissemination of art.",
             starting_value: rand(300..21500),
@@ -188,11 +188,63 @@ User.destroy_all
             name: "Virgin of the Rocks",
             artist: "Leonardo da Vinci",
             year: 1503,
-            description: "ome paintings are as mysterious as they are famous. Gazing at them is like diving into a deep dark sea. You never know what unsuspecting pearl your eyes might prise loose from their secretive lips – what key you might find that can unlock their power. Take Leonardo da Vinci’s the Virgin of the Rocks, in which the infant Jesus finds himself in a shadowy cave on Alpine playdate with a baby John the Baptist.",
+            description: "Some paintings are as mysterious as they are famous. Gazing at them is like diving into a deep dark sea. You never know what unsuspecting pearl your eyes might prise loose from their secretive lips – what key you might find that can unlock their power. Take Leonardo da Vinci’s the Virgin of the Rocks, in which the infant Jesus finds himself in a shadowy cave on Alpine playdate with a baby John the Baptist.",
             starting_value: rand(300..21500),
             user_id: User.first.id + 1
         )
          artifact.photo.attach(io: file, filename: 'artifact12.png', content_type: 'image/png')
+
+
+         file = URI.open("https://source.unsplash.com/collection/273747/1600x900")
+
+         artifact = Artifact.create!(
+            name: "Inside the sun",
+            artist: "John Smith",
+            year: 2001,
+            description: "Hiding in plain sight in both paintings is a small and previously overlooked detail that, once spotted, transforms the scene into something more complex and controversial than the vision of a sacred creche, watched over tenderly by the Virgin Mary and the archangel Uriel.",
+            starting_value: rand(300..21500),
+            user_id: User.first.id + 1
+        )
+         artifact.photo.attach(io: file, filename: 'artifact13.png', content_type: 'image/png')
+
+
+         file = URI.open("https://source.unsplash.com/collection/273746/1600x900")
+
+         artifact = Artifact.create!(
+            name: "Life reflections",
+            artist: "John Smith",
+            year: 2005,
+            description: "To appreciate just how surprising and provocative this complex symbol is – an Alpine palm tree doubling as a displaced scallop shell – we must first remind ourselves of the backstory of Leonardo’s vision, which pulses with a strange subterranean poetry all its own. Though very different in temperature and tone, the two paintings share the same basic composition.",
+            starting_value: rand(300..21500),
+            user_id: User.first.id + 1
+        )
+         artifact.photo.attach(io: file, filename: 'artifact14.png', content_type: 'image/png')
+
+
+         file = URI.open("https://source.unsplash.com/collection/273748/1600x900")
+
+         artifact = Artifact.create!(
+            name: "On a day",
+            artist: "Arula Jin",
+            year: 2005,
+            description: "Where, you might reasonably ask, is the pearl in the Virgin of the Rocks, if the palm tree is really a double-sign that merges into the symbolism of a pearl-bearing scallop? In fact, Leonardo has given us 20. At the precise centre of both paintings, glinting at us underappreciated for half a millennium, is a polished brooch that keeps Mary’s cloak from slipping off her shoulders. Surrounding the central stone in that clasp is a halo of 20 dazzling pearls.",
+            starting_value: rand(300..21500),
+            user_id: User.first.id + 1
+        )
+         artifact.photo.attach(io: file, filename: 'artifact15.png', content_type: 'image/png')
+
+
+         file = URI.open("https://source.unsplash.com/collection/273749/1600x900")
+
+         artifact = Artifact.create!(
+            name: "This morning",
+            artist: "Arula Jin",
+            year: 2005,
+            description: "Whether the rocky portrayal is what the Confraternity of the Immaculate Conception in Milan would have wanted when it commissioned Leonardo to create a central panel for its altarpiece in 1483, is doubtful. Rather than elevating and enthroning the mother and child among a choir of angels, as was expected, Leonardo fossicks from the depths of his imagination a grotty and comfortless grotto.",
+            starting_value: rand(300..21500),
+            user_id: User.first.id + 1
+        )
+         artifact.photo.attach(io: file, filename: 'artifact16.png', content_type: 'image/png')
 
 User.all.each do |user|
     2.times do

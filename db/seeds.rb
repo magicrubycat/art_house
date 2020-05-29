@@ -133,7 +133,7 @@ User.destroy_all
          file = URI.open("https://martinrandall.ontigerbay.co.uk/content/Default/Pictures/art-in-japan-main-image-81-1.jpg")
 
          artifact = Artifact.create!(
-            name: "Japanese Women under a tree",
+            name: "Japanese Women",
             artist: "Hiroshi Shu",
             year: 1789,
             description: "Art in Japan - Art, craft, architecture & design. Many of the finest collections of Japanese art in museums and in situ in temples and shrines. World Heritage sites at Nikko, Kyoto, Nara and Horyu-ji, and the art island of Naoshima. Outstanding museum buildings by Tadao Ando, I.M. Pei and other leading architects. Other aspects of Japanese culture, past and present, including gastronomy and gardens.",
@@ -160,7 +160,7 @@ User.destroy_all
         file = URI.open("https://source.unsplash.com/collection/273745/1600x900")
 
          artifact = Artifact.create!(
-            name: "Reflections about water",
+            name: "Reflections about art",
             artist: "John Smith",
             year: 2002,
             description: "Art is a diverse range of human activities in creating visual, auditory or performing artifacts (artworks), expressing the author's imaginative, conceptual ideas, or technical skill, intended to be appreciated for their beauty or emotional power.Other activities related to the production of works of art include the criticism of art, the study of the history of art, and the aesthetic dissemination of art.",
@@ -181,6 +181,18 @@ User.destroy_all
             user_id: User.first.id + 1
         )
          artifact.photo.attach(io: file, filename: 'artifact11.png', content_type: 'image/png')
+
+         file = URI.open("https://ichef.bbci.co.uk/wwfeatures/live/624_351/images/live/p0/70/rw/p070rwt0.jpg")
+
+         artifact = Artifact.create!(
+            name: "Virgin of the Rocks",
+            artist: "Leonardo da Vinci",
+            year: 1503,
+            description: "ome paintings are as mysterious as they are famous. Gazing at them is like diving into a deep dark sea. You never know what unsuspecting pearl your eyes might prise loose from their secretive lips – what key you might find that can unlock their power. Take Leonardo da Vinci’s the Virgin of the Rocks, in which the infant Jesus finds himself in a shadowy cave on Alpine playdate with a baby John the Baptist.",
+            starting_value: rand(300..21500),
+            user_id: User.first.id + 1
+        )
+         artifact.photo.attach(io: file, filename: 'artifact12.png', content_type: 'image/png')
 
 User.all.each do |user|
     2.times do

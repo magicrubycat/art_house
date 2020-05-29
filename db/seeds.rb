@@ -124,17 +124,17 @@ User.destroy_all
 
         sleep(6)
 
-        file = URI.open("https://www.admiddleeast.com/public/images/2019/06/24/11-most-fascinating-public-sculptures-01.jpg")
+        # file = URI.open("https://www.admiddleeast.com/public/images/2019/06/24/11-most-fascinating-public-sculptures-01.jpg")
 
-         artifact = Artifact.create!(
-            name: "Travelling to work?",
-            artist: "John Ranky",
-            year: 2000,
-            description: "Commissioned public artwork has been part of our culture for many millennia. Over time, as world travel has become easier and safer, commissioned civil works of art have turned into tourist attractions all their own. From the bustling streets of New York City and Chicago to quieter corners of the globe in Howick, South Africa, and Las Colinas, Texas, Architectural Digest surveys twenty-four of the world’s most fascinating public sculptures.",
-            starting_value: rand(300..21500),
-            user_id: User.first.id + 3
-        )
-         artifact.photo.attach(io: file, filename: 'artifact7.png', content_type: 'image/png')
+        #  artifact = Artifact.create!(
+        #     name: "Travelling to work?",
+        #     artist: "John Ranky",
+        #     year: 2000,
+        #     description: "Commissioned public artwork has been part of our culture for many millennia. Over time, as world travel has become easier and safer, commissioned civil works of art have turned into tourist attractions all their own. From the bustling streets of New York City and Chicago to quieter corners of the globe in Howick, South Africa, and Las Colinas, Texas, Architectural Digest surveys twenty-four of the world’s most fascinating public sculptures.",
+        #     starting_value: rand(300..21500),
+        #     user_id: User.first.id + 3
+        # )
+        #  artifact.photo.attach(io: file, filename: 'artifact7.png', content_type: 'image/png')
 
          sleep(6)
 

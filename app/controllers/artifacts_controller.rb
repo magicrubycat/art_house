@@ -12,9 +12,10 @@ class ArtifactsController < ApplicationController
 
   def show
     @bids = Bid.where(artifact_id: @artifact.id).order("value DESC").first
+    @user_highest_bid = Bid.where(artifact_id: @artifact.id, user_id: current_user.try(:id)).order("value DESC").first
     @bid = Bid.new
-    if @bids.present?
-      if @bids.value < @artifact.starting_value
+    if @user_highest_bid.present?
+      if @user_highest_bid.value < @artifact.starting_value
         flash.now[:notice] = "Your bid is lower than the starting price."
       else
         flash.now[:notice] = "Thanks for your money!"

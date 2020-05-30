@@ -50,7 +50,7 @@
           <tbody>
             <% artifact.bids.each do |bid| %>
               <tr>
-                <% if bid.status == "pending" %>
+                <% if bid.status == "pending" || nil %>
                 <td><%= number_with_delimiter(bid.value, delimiter: ".") %> €</td>
                 <td><%= bid.user.name %></td>
                 <td>

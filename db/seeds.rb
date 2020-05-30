@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require "open-uri"
-Bid.destroy_all
-Artifact.destroy_all
-User.destroy_all
+#Bid.destroy_all
+#Artifact.destroy_all
+#User.destroy_all
 
 
         user = User.create!(
@@ -51,7 +51,7 @@ User.destroy_all
         )
         artifact.photo.attach(io: file, filename: 'artifact1.png', content_type: 'image/png')
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg")
 
@@ -65,7 +65,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact2.png', content_type: 'image/png')
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open('https://images.unsplash.com/photo-1523554888454-84137e72c3ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
 
@@ -79,7 +79,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact3.png', content_type: 'image/png')
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open('https://cdn.radiofrance.fr/s3/cruiser-production/2019/10/4d7c57b1-ea5f-48d3-8af9-fb5f94bb07ec/1200x680_r_la_naissance_de_venus_1484-1486_musee_des_offices_florence_immagina_leemage.jpg')
 
@@ -94,7 +94,7 @@ User.destroy_all
          artifact.photo.attach(io: file, filename: 'artifact4.png', content_type: 'image/png')
 
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open("https://cdnph.upi.com/sv/ph/og/i/5811505017334/2017/1/15050209312220/v1.5/UPI-Almanac-for-Sunday-Sept-10-2017.jpg")
 
@@ -108,7 +108,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact5.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://a.1stdibscdn.com/unknown-sculptures-large-early-20th-century-bronze-bull-sculpture-on-custom-cement-base-for-sale/a_5063/1547070896205/13089741_master_master.jpg")
 
@@ -122,7 +122,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact6.png', content_type: 'image/png')
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open("https://www.admiddleeast.com/public/images/2019/06/24/11-most-fascinating-public-sculptures-01.jpg")
 
@@ -136,7 +136,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact7.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://martinrandall.ontigerbay.co.uk/content/Default/Pictures/art-in-japan-main-image-81-1.jpg")
 
@@ -150,7 +150,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact8.png', content_type: 'image/png')
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open("https://source.unsplash.com/collection/9248817/1600x900")
 
@@ -164,7 +164,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact9.png', content_type: 'image/png')
 
-        sleep(6000)
+        #sleep(6000)
 
         file = URI.open("https://source.unsplash.com/collection/273745/1600x900")
 
@@ -178,7 +178,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact10.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://miro.medium.com/max/3840/1*nbEWiH-H0aEJj1iYTN-t1w.jpeg")
 
@@ -192,7 +192,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact11.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://ichef.bbci.co.uk/wwfeatures/live/624_351/images/live/p0/70/rw/p070rwt0.jpg")
 
@@ -206,7 +206,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact12.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://source.unsplash.com/collection/273747/1600x900")
 
@@ -220,7 +220,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact13.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://source.unsplash.com/collection/273746/1600x900")
 
@@ -234,7 +234,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact14.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://source.unsplash.com/collection/273748/1600x900")
 
@@ -248,7 +248,7 @@ User.destroy_all
         )
          artifact.photo.attach(io: file, filename: 'artifact15.png', content_type: 'image/png')
 
-         sleep(6000)
+         #sleep(6000)
 
          file = URI.open("https://source.unsplash.com/collection/273749/1600x900")
 

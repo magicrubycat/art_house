@@ -266,7 +266,6 @@ User.all.each do |user|
         bid = Bid.new(
             artifact: Artifact.where.not(user_id: user.id).sample,
             user: user,
-            status: "pending",
             value: rand(1..10000000)
         )
         bid.save!

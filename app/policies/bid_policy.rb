@@ -8,12 +8,4 @@ class BidPolicy < ApplicationPolicy
   def create? #create a bid
     record.artifact.user != user #how to check if the user is not the owner of the artifact (i.e. record)
   end
-
-  def accept?
-    record.artifact.user == user
-  end
-
-  def reject?
-    record.artifact.user == user
-  end
 end

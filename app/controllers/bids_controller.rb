@@ -30,7 +30,6 @@ class BidsController < ApplicationController
         bid.save
       end
     end
-    authorize @bid
     @bid.save
     @artifact.sold = true
     @artifact.save
@@ -40,7 +39,6 @@ class BidsController < ApplicationController
   def reject
     @artifact = @bid.artifact
     @bid.status = "reject"
-    authorize @bid
     @bid.save
 
     redirect_to dashboard_path

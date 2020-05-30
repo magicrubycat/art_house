@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require "open-uri"
-#Bid.destroy_all
-#Artifact.destroy_all
-#User.destroy_all
+Bid.destroy_all
+Artifact.destroy_all
+User.destroy_all
 
 
         user = User.create!(
@@ -92,6 +92,7 @@ require "open-uri"
             user_id: User.first.id + 4
         )
          artifact.photo.attach(io: file, filename: 'artifact4.png', content_type: 'image/png')
+
 
         sleep(6)
 
